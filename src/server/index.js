@@ -6,6 +6,13 @@ const cors = require('cors');
 const axios = require('axios');
 const { allowedNodeEnvironmentFlags } = require('process');
 
+//using environment variable
+dotenv.config();
+let exampleApi = {application_key: process.env.API_KEY};
+
+//setup empty JS object to act as endpoint
+let projectData = {};
+
 const app = express();
 app.use(express.static('dist'));
 
@@ -23,3 +30,13 @@ app.listen(8081, function() {
     console.log('App runs smoothly on port 8081');
 });
 
+//home route to use build index file from dist folder
+//TODO: check if line 17 is enough
+app.get('/', function(req, res) {
+    res.sendFile('dist.index.html');
+});
+
+//send back recent project data
+app.get('/all', function(req,res) {
+    res.send(projectData);
+})
