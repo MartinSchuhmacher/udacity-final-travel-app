@@ -4,7 +4,8 @@
     "description": "Final Project: Build a Travel App of the Udacity Front End Web Developer Nanodegree Program",
     "scripts": {
         "start": "webpack --config webpack.prod.js && node src/server/index.js",
-        "dev": "webpack --config webpack.dev.js && webpack-dev-server --config webpack.dev.js --open"
+        "dev": "webpack --config webpack.dev.js && webpack-dev-server --config webpack.dev.js --open",
+        "build": "webpack --config webpack.prod.js"
     },
     "dependencies": {
         "axios": "^0.21.1",
