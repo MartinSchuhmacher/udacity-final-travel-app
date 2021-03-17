@@ -1,18 +1,36 @@
+document.getElementById('form').addEventListener('submit', handleSubmit);
 
-
-//document.getElementById('sendMe').addEventListener('click', handleSubmit);
-
-let handleSubmit = event => {
+function handleSubmit(event) {
     event.preventDefault();
+    console.log("clicked!");
     //check input for correct format
     const origin = document.getElementById('text').value;
     const destination = document.getElementById('text2').value;
-    const checkOrigin = Client.checkForLocation(origin);
-    const checkDestination = Client.checkForLocation(destination);
+    const checkResult = Client.checkForLocation(origin, destination);
 
     //for debugging
-    console.log("Origin Result: "+checkOrigin);
-    console.log("Destination Result: "+ checkDestination);
+    console.log("Result: "+checkResult);
 
-    //if check 
+    //if check confirms valid location send request
+    if(checkResult) {
+        fetch('/location', {
+            mode: 'cors',
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                originInput: origin,
+                destinationInput: destination
+            })
+        });
+    }
+    else {
+        alert("<Please enter valid locations!>");
+    }
 }
+
+export {
+    handleSubmit
+};

@@ -1,5 +1,7 @@
-//import {} from '';
+import {handleSubmit} from './js/app.js';
+import {checkForLocation} from './js/checkInput.js';
 
-/*export {
-
-};*/
+export {
+    handleSubmit,
+    checkForLocation
+};

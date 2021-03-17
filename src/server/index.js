@@ -40,3 +40,9 @@ app.get('/', function(req, res) {
 app.get('/all', function(req,res) {
     res.send(projectData);
 })
+
+//axios for promised based request
+//auto parse JSON by default, no need to do extra for data received from client
+app.post('/location', function(request, response) {
+    console.log(request.body);
+})
