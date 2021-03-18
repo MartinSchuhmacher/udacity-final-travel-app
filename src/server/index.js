@@ -8,7 +8,7 @@ const { allowedNodeEnvironmentFlags } = require('process');
 
 //using environment variable
 dotenv.config();
-let exampleApi = {application_key: process.env.API_KEY};
+let geonamesApi = {geonames_username: process.env.GEONAMES_USERNAME};
 
 //setup empty JS object to act as endpoint
 let projectData = {};
@@ -45,4 +45,16 @@ app.get('/all', function(req,res) {
 //auto parse JSON by default, no need to do extra for data received from client
 app.post('/location', function(request, response) {
     console.log(request.body);
-})
+    projectData = {
+        origin: request.body.originInput,
+        destination: request.body.destinationInput
+    };
+    axios.get('http://api.geonames.org/searchJSON?q='+projectData.destination+'&maxRows=10&lang=en&username='+geonamesApi.geonames_username)
+    .then(res => {
+        console.log(res.data.geonames[0]);
+        response.send(true);
+    })
+    .catch(error => {
+        console.log('Error while GET with axios:', error);
+    });
+});
