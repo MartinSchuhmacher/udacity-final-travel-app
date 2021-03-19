@@ -7,14 +7,16 @@ function handleSubmit(event) {
     //check input for correct format
     const origin = document.getElementById('text').value.trim();
     const destination = document.getElementById('text2').value.trim();
-    const departureDate = document.getElementById('date').value;
-    const checkResult = Client.checkForValidation(origin, destination, departureDate);
-
+    const departureDate = new Date(document.getElementById('date').value);
+    const today = new Date();
+    const checkResult = Client.checkForValidation(origin, destination, departureDate, today);
     //for debugging
     console.log("Result: "+checkResult);
 
     //if check confirms valid location send request
     if(checkResult) {
+        const dateDiff = Client.calculateDateDiff(departureDate, today);
+        document.getElementById('daysToGo').innerHTML = dateDiff;
         fetch('/location', {
             mode: 'cors',
             method: 'POST',
