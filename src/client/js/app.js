@@ -4,8 +4,8 @@ function handleSubmit(event) {
     event.preventDefault();
     console.log("clicked!");
     //check input for correct format
-    const origin = document.getElementById('text').value;
-    const destination = document.getElementById('text2').value;
+    const origin = document.getElementById('text').value.trim();
+    const destination = document.getElementById('text2').value.trim();
     const checkResult = Client.checkForLocation(origin, destination);
 
     //for debugging
