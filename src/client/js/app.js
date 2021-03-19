@@ -1,4 +1,5 @@
 document.getElementById('form').addEventListener('submit', handleSubmit);
+document.getElementById('date').valueAsDate = new Date();
 
 function handleSubmit(event) {
     event.preventDefault();
@@ -6,7 +7,8 @@ function handleSubmit(event) {
     //check input for correct format
     const origin = document.getElementById('text').value.trim();
     const destination = document.getElementById('text2').value.trim();
-    const checkResult = Client.checkForLocation(origin, destination);
+    const departureDate = document.getElementById('date').value;
+    const checkResult = Client.checkForValidation(origin, destination, departureDate);
 
     //for debugging
     console.log("Result: "+checkResult);
@@ -27,7 +29,7 @@ function handleSubmit(event) {
         });
     }
     else {
-        alert("<Please enter valid locations!>");
+        alert("<Please enter valid locations and departure date!>");
     }
 }
 
