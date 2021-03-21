@@ -10,6 +10,7 @@ const { allowedNodeEnvironmentFlags } = require('process');
 dotenv.config();
 const geonamesApi = {geonames_username: process.env.GEONAMES_USERNAME};
 const weatherbitApi = {weatherbit_key: process.env.WEATHERBIT_KEY};
+const pixabayApi = {pixabay_key: process.env.PIXABAY_KEY};
 
 //setup empty JS object to act as endpoint
 let projectData = {};
@@ -69,8 +70,24 @@ app.post('/weather', function(request, response) {
     axios.get('http://api.weatherbit.io/v2.0/forecast/daily?key='+weatherbitApi.weatherbit_key+'&lat='+projectData.latitude+'&lon='+projectData.longitude)
     .then(res => {
         console.log(res.data);
+        response.send(res.data);
     })
     .catch(error => {
         console.log('Error while weather GET with axios: ', error);
+    })
+})
+
+app.post('/picture', function(request, response) {
+    console.log(request.body);
+    projectData = {
+        cityName: request.body.cityNameInput
+    };
+    axios.get('https://pixabay.com/api/?key='+pixabayApi.pixabay_key+'&q='+projectData.cityName)
+    .then(res => {
+        console.log(res.data);
+        response.send(res.data);
+    })
+    .catch(error => {
+        console.log('Error while picture GET with axios: ', error);
     })
 })

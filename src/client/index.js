@@ -3,11 +3,13 @@ import {checkForValidation} from './js/checkInput.js';
 import {calculateDateDiff} from './js/calculateDateDiff.js';
 import {getLocation} from './js/getLocation.js';
 import {getWeather} from './js/getWeather.js';
+import {getPicture} from './js/getPicture.js';
 
 export {
     handleSubmit,
     checkForValidation,
     calculateDateDiff,
     getLocation,
-    getWeather
+    getWeather,
+    getPicture
 };

@@ -20,6 +20,10 @@ function handleSubmit(event) {
         const locationData = Client.getLocation('/location', origin, destination)
         .then(function(locationData) {
             const weatherData = Client.getWeather('/weather', locationData.lat, locationData.lng);
+            return weatherData;
+        })
+        .then(function(weatherData) {
+            const pictureData = Client.getPicture('/picture', weatherData.city_name);
         });
     }
     else {
