@@ -17,18 +17,8 @@ function handleSubmit(event) {
     if(checkResult) {
         const dateDiff = Client.calculateDateDiff(departureDate, today);
         document.getElementById('daysToGo').innerHTML = dateDiff;
-        fetch('/location', {
-            mode: 'cors',
-            method: 'POST',
-            credentials: 'same-origin',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                originInput: origin,
-                destinationInput: destination
-            })
-        });
+        const locationData = Client.getLocation('/location', origin, destination);
+        console.log(locationData);
     }
     else {
         alert("<Please enter valid locations and departure date!>");
