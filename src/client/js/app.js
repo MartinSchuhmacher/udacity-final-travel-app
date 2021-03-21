@@ -17,8 +17,10 @@ function handleSubmit(event) {
     if(checkResult) {
         const dateDiff = Client.calculateDateDiff(departureDate, today);
         document.getElementById('daysToGo').innerHTML = dateDiff;
-        const locationData = Client.getLocation('/location', origin, destination);
-        console.log(locationData);
+        const locationData = Client.getLocation('/location', origin, destination)
+        .then(function(locationData) {
+            const weatherData = Client.getWeather('/weather', locationData.lat, locationData.lng);
+        });
     }
     else {
         alert("<Please enter valid locations and departure date!>");

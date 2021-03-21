@@ -56,6 +56,21 @@ app.post('/location', function(request, response) {
         response.send(res.data.geonames[0]);
     })
     .catch(error => {
-        console.log('Error while GET with axios:', error);
+        console.log('Error while location GET with axios:', error);
     });
 });
+
+app.post('/weather', function(request, response) {
+    console.log(request.body);
+    projectData = {
+        latitude: request.body.latitudeInput,
+        longitude: request.body.longitudeInput
+    };
+    axios.get('http://api.weatherbit.io/v2.0/forecast/daily?key='+weatherbitApi.weatherbit_key+'&lat='+projectData.latitude+'&lon='+projectData.longitude)
+    .then(res => {
+        console.log(res.data);
+    })
+    .catch(error => {
+        console.log('Error while weather GET with axios: ', error);
+    })
+})
