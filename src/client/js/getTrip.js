@@ -7,7 +7,7 @@ async function getTrip(url='', weatherList) {
                 ${weathOne.valid_date}
                 max ${weathOne.max_temp}°C
                 min ${weathOne.min_temp}°C
-                <img src="../src/client/media/icons/._${weathOne.weather.icon}.png">
+                <img src="https://github.com/MartinSchuhmacher/udacity-final-travel-app/blob/main/src/client/media/icons/${weathOne.weather.icon}.png?raw=true">
             </li>`;
         weatherList.insertAdjacentHTML('beforeend', newElement);
     }
