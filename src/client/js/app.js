@@ -1,5 +1,6 @@
 document.getElementById('form').addEventListener('submit', handleSubmit);
 document.getElementById('date').valueAsDate = new Date();
+const weatherList = document.getElementById('weather__list');
 
 function handleSubmit(event) {
     event.preventDefault();
@@ -24,6 +25,9 @@ function handleSubmit(event) {
         })
         .then(function(weatherData) {
             const pictureData = Client.getPicture('/picture', weatherData.city_name);
+        })
+        .then(function() {
+            Client.getTrip('/trip', weatherList);
         });
     }
     else {

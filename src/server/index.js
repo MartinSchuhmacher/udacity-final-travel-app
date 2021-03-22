@@ -70,8 +70,8 @@ app.post('/weather', function(request, response) {
     })
     .catch(error => {
         console.log('Error while weather GET with axios: ', error);
-    })
-})
+    });
+});
 
 app.post('/picture', function(request, response) {
     console.log(request.body);
@@ -84,5 +84,7 @@ app.post('/picture', function(request, response) {
     })
     .catch(error => {
         console.log('Error while picture GET with axios: ', error);
-    })
-})
+    });
+});
+
+app.get('/trip', (req, res) => res.send(tripData));
