@@ -14,6 +14,7 @@ const pixabayApi = {pixabay_key: process.env.PIXABAY_KEY};
 
 //setup empty JS object to act as endpoint
 let projectData = {};
+let tripData = {};
 
 const app = express();
 app.use(express.static('dist'));
@@ -70,6 +71,10 @@ app.post('/weather', function(request, response) {
     axios.get('http://api.weatherbit.io/v2.0/forecast/daily?key='+weatherbitApi.weatherbit_key+'&lat='+projectData.latitude+'&lon='+projectData.longitude)
     .then(res => {
         console.log(res.data);
+        tripData = {
+            destination: res.data.city_name,
+            weather: res.data.data
+        };
         response.send(res.data);
     })
     .catch(error => {
@@ -84,8 +89,10 @@ app.post('/picture', function(request, response) {
     };
     axios.get('https://pixabay.com/api/?key='+pixabayApi.pixabay_key+'&q='+projectData.cityName)
     .then(res => {
-        console.log(res.data);
-        response.send(res.data);
+        console.log(res.data.hits[0]);
+        tripData.picture = res.data.hits[0].webformatURL;
+        console.log(tripData);
+        response.send(res.data.hits[0]);
     })
     .catch(error => {
         console.log('Error while picture GET with axios: ', error);
