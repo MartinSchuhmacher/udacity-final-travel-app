@@ -1,6 +1,6 @@
 document.getElementById('form').addEventListener('submit', handleSubmit);
 document.getElementById('date').valueAsDate = new Date();
-const weatherList = document.getElementById('weather__list');
+const resultsArea = document.getElementById('results-area');
 
 function handleSubmit(event) {
     event.preventDefault();
@@ -17,17 +17,16 @@ function handleSubmit(event) {
     //if check confirms valid location send request
     if(checkResult) {
         const dateDiff = Client.calculateDateDiff(departureDate, today);
-        document.getElementById('daysToGo').innerHTML = dateDiff;
         const locationData = Client.getLocation('/location', origin, destination)
         .then(function(locationData) {
             const weatherData = Client.getWeather('/weather', locationData.lat, locationData.lng);
             return weatherData;
         })
         .then(function(weatherData) {
-            const pictureData = Client.getPicture('/picture', weatherData.city_name);
+            Client.getPicture('/picture', weatherData.city_name);
         })
         .then(function() {
-            Client.getTrip('/trip', weatherList);
+            Client.getTrip('/trip', resultsArea, dateDiff);
         });
     }
     else {
