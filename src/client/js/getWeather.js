@@ -1,6 +1,6 @@
 async function getWeather(url='', latitude, longitude) {
     try {
-        const response = await fetch(url, {
+        await fetch(url, {
             mode: 'cors',
             method: 'POST',
             credentials: 'same-origin',
@@ -12,8 +12,6 @@ async function getWeather(url='', latitude, longitude) {
                 longitudeInput: longitude
             })
         });
-        const weatherData = await response.json();
-        return weatherData;
     }
     catch(error) {
         console.log('Something went wrong while getWeather: ', error);

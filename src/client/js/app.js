@@ -19,14 +19,15 @@ function handleSubmit(event) {
         const dateDiff = Client.calculateDateDiff(departureDate, today);
         const locationData = Client.getLocation('/location', origin, destination)
         .then(function(locationData) {
-            const weatherData = Client.getWeather('/weather', locationData.lat, locationData.lng);
-            return weatherData;
+            Client.getWeather('/weather', locationData.lat, locationData.lng);
+            return locationData;
         })
-        .then(function(weatherData) {
-            Client.getPicture('/picture', weatherData.city_name);
+        .then(function(locationData) {
+            const totalData = Client.getPicture('/picture', locationData.toponymName);
+            return totalData;
         })
-        .then(function() {
-            Client.getTrip('/trip', resultsArea, dateDiff);
+        .then(function(totalData) {
+            Client.getTrip(resultsArea, dateDiff, totalData);
         });
     }
     else {

@@ -33,7 +33,7 @@ app.listen(8081, function() {
 });
 
 //home route to use build index file from dist folder
-//TODO: check if line 17 is enough
+//TODO: check if line 19 is enough
 app.get('/', function(req, res) {
     res.sendFile('dist.index.html');
 });
@@ -50,6 +50,7 @@ app.post('/location', function(request, response) {
     axios.get('http://api.geonames.org/searchJSON?q='+request.body.destinationInput+'&maxRows=10&lang=en&username='+geonamesApi.geonames_username)
     .then(res => {
         console.log(res.data.geonames[0]);
+        tripData = {destination: res.data.geonames[0].toponymName}
         response.send(res.data.geonames[0]);
     })
     .catch(error => {
@@ -62,10 +63,7 @@ app.post('/weather', function(request, response) {
     axios.get('http://api.weatherbit.io/v2.0/forecast/daily?key='+weatherbitApi.weatherbit_key+'&lat='+request.body.latitudeInput+'&lon='+request.body.longitudeInput)
     .then(res => {
         console.log(res.data);
-        tripData = {
-            destination: res.data.city_name,
-            weather: res.data.data
-        };
+        tripData.weather = res.data.data;
         response.send(res.data);
     })
     .catch(error => {
@@ -79,12 +77,9 @@ app.post('/picture', function(request, response) {
     .then(res => {
         console.log(res.data.hits[0]);
         tripData.picture = res.data.hits[0].webformatURL;
-        console.log(tripData);
-        response.send(res.data.hits[0]);
+        response.send(tripData);
     })
     .catch(error => {
         console.log('Error while picture GET with axios: ', error);
     });
 });
-
-app.get('/trip', (req, res) => res.send(tripData));

@@ -1,12 +1,12 @@
-async function getTrip(url='', resultsArea, dateDiff) {
-    const response = await fetch(url);
-    const tripData = await response.json();
+function getTrip(resultsArea, dateDiff, totalData) {
     let newDiv = document.createElement('div');
     let newList = document.createElement('ul');
-    const pictureElement = `<img class="picture" src="${tripData.picture}">`;
-    const dateElement = `<div> Departure to ${tripData.destination} in ${dateDiff} days.</div>`;
+    const pictureElement = `<img class="picture" src="${totalData.picture}">`;
+    console.log(totalData);
+    const dateDiv = document.createElement('div');
+    dateDiv.innerHTML = `Departure to ${totalData.destination} in ${dateDiff} days.`;
     resultsArea.insertAdjacentHTML('beforeend', pictureElement);
-    for (const weathOne of tripData.weather) {
+    for (const weathOne of totalData.weather) {
         const newElement = 
             `<li class="weather-box">
                 ${weathOne.valid_date}
@@ -17,8 +17,8 @@ async function getTrip(url='', resultsArea, dateDiff) {
         newList.insertAdjacentHTML('beforeend', newElement);
     }; 
     newDiv.appendChild(newList);
-    newDiv.insertAdjacentHTML('beforeend', dateElement);
-    resultsArea.insertAdjacentHTML('beforeend', newDiv);
+    newDiv.appendChild(dateDiv);
+    resultsArea.appendChild(newDiv);
 }
 
 export {getTrip}
