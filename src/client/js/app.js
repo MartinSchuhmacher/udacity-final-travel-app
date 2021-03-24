@@ -22,16 +22,18 @@ function handleSubmit(event) {
     //if check confirms valid location send request
     if(checkResult) {
         const dateDiff = Client.calculateDateDiff(departureDate, today);
+        localStorage.setItem('dateDiff', dateDiff.toString());
         const locationData = Client.getLocation('/location', origin, destination)
         .then(function(locationData) {
             Client.getWeather('/weather', locationData.lat, locationData.lng);
             return locationData;
         })
         .then(function(locationData) {
-            const totalData = Client.getPicture('/picture', locationData.toponymName);
+            const totalData = Client.getPicture('/picture', locationData.toponymName);   
             return totalData;
         })
         .then(function(totalData) {
+            localStorage.setItem('totalData', JSON.stringify(totalData));
             Client.getTrip(resultsArea, dateDiff, totalData);
         });
     }
@@ -43,11 +45,19 @@ function handleSubmit(event) {
 //manually reset result data
 function resetData(event) {
     event.preventDefault();
+    localStorage.clear();
     console.log('reset!');
     while(resultsArea.firstChild) {
         resultsArea.removeChild(resultsArea.firstChild);
     };
 }
+
+//restore data from local storage when opening the page
+window.onload = function() {
+	if (localStorage.getItem('dateDiff') && localStorage.getItem('totalData')) {
+		Client.getTrip(resultsArea, JSON.parse(localStorage.getItem('dateDiff')), JSON.parse(localStorage.getItem('totalData')));
+	};
+};
 
 export {
     handleSubmit,
