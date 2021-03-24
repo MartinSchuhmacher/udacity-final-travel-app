@@ -1,4 +1,7 @@
-import {handleSubmit} from './js/app.js';
+import {
+    handleSubmit,
+    resetData
+    } from './js/app.js';
 import {checkForValidation} from './js/checkInput.js';
 import {calculateDateDiff} from './js/calculateDateDiff.js';
 import {getLocation} from './js/getLocation.js';
@@ -8,6 +11,7 @@ import {getTrip} from './js/getTrip.js';
 
 export {
     handleSubmit,
+    resetData,
     checkForValidation,
     calculateDateDiff,
     getLocation,

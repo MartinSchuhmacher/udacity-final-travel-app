@@ -1,10 +1,15 @@
 document.getElementById('form').addEventListener('submit', handleSubmit);
 document.getElementById('date').valueAsDate = new Date();
+document.getElementById('delete').addEventListener('click', resetData);
 const resultsArea = document.getElementById('results-area');
 
 function handleSubmit(event) {
     event.preventDefault();
-    console.log("clicked!");
+    //reset results before each request
+    while(resultsArea.firstChild) {
+        resultsArea.removeChild(resultsArea.firstChild);
+    };
+    console.log('clicked!');
     //check input for correct format
     const origin = document.getElementById('text').value.trim();
     const destination = document.getElementById('text2').value.trim();
@@ -12,7 +17,7 @@ function handleSubmit(event) {
     const today = new Date();
     const checkResult = Client.checkForValidation(origin, destination, departureDate, today);
     //for debugging
-    console.log("Result: "+checkResult);
+    console.log('Result: '+checkResult);
 
     //if check confirms valid location send request
     if(checkResult) {
@@ -31,10 +36,20 @@ function handleSubmit(event) {
         });
     }
     else {
-        alert("<Please enter valid locations and departure date!>");
+        alert('<Please enter valid locations and departure date!>');
     }
 }
 
+//manually reset result data
+function resetData(event) {
+    event.preventDefault();
+    console.log('reset!');
+    while(resultsArea.firstChild) {
+        resultsArea.removeChild(resultsArea.firstChild);
+    };
+}
+
 export {
-    handleSubmit
+    handleSubmit,
+    resetData
 };
