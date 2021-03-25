@@ -21,4 +21,4 @@ function getTrip(resultsArea, dateDiff, totalData) {
     resultsArea.appendChild(newDiv);
 }
 
-export {getTrip}
+export {getTrip};

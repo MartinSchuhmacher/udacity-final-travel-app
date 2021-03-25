@@ -18,4 +18,4 @@ async function getWeather(url='', latitude, longitude) {
     }
 }
 
-export {getWeather}
+export {getWeather};
