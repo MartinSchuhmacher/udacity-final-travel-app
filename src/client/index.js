@@ -8,6 +8,7 @@ import {getLocation} from './js/getLocation.js';
 import {getWeather} from './js/getWeather.js';
 import {getPicture} from './js/getPicture.js';
 import {getTrip} from './js/getTrip.js';
+import './styles/style.scss';
 
 export {
     handleSubmit,
