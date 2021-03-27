@@ -17,18 +17,18 @@ input {
     &:focus {
         outline: none;
     }
-     // specific style for browser support
-    // Firefox, Chrome, Opera
+    //specific style for browser support
+    //Firefox, Chrome, Opera
     &::placeholder {
         color: #4d4d4d;
         font-family: 'Oswald', sans-serif;
     }
-    // Internet Explorer 10-11
+    //Internet Explorer 10-11
     &:-ms-input-placeholder {
         color: #4d4d4d;
         font-family: 'Oswald', sans-serif;
     }
-    // Microsoft Edge
+    //Microsoft Edge
     &::-ms-input-placeholder {
         color: #4d4d4d;
         font-family: 'Oswald', sans-serif;
@@ -46,5 +46,20 @@ input {
         box-shadow: 0.2rem 0.25rem 0.3rem #000;
         cursor: pointer;
         margin-left: 0.4rem;
+        color: #000;
+    }
+    &#delete {
+        width: 10rem;
+        height: 2rem;
+        box-shadow: 0.2rem 0.25rem 0.3rem #1b1b1b;
+        background-color: #4d4d4d;
+        border-color: white;
+        border-style: solid;
+        border-width: thin;
+        color:#fff;
+        cursor: pointer;
+        text-align: center;
+        vertical-align: middle;
+        margin-left: 5rem;
     }
 }

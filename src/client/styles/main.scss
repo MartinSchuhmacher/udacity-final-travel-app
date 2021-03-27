@@ -15,7 +15,7 @@ html {
 
 body {
     display: grid;
-    grid-template-rows: minmax(300px, auto) 90px;
+    grid-template-rows: minmax(18.75rem, auto) 3.125rem;
     background: rgb(136,203,171);
     background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
     padding: 0;
@@ -26,8 +26,8 @@ body {
 
 main {
     display: grid;
-    grid-template-rows: 80px minmax(140px, auto) minmax(100px, auto);
-    color: #ffffff;
+    grid-template-rows: minmax(5rem, auto) minmax(8.75rem, auto) minmax(1.25rem, auto);
+    color: #fff;
     justify-content: center;
     gap: 0.5rem;
     //height: minmax(30vh, auto);
@@ -46,7 +46,6 @@ main {
             align-items: flex-start;
             gap: 0.3rem;
             padding: 0.8rem 0.2rem 1rem 0.2rem;
-            
         }
     }
 }
