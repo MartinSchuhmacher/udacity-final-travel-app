@@ -21,19 +21,25 @@ body {
     padding: 0;
     margin: 0;
     justify-content: center;
-    font-family: Merriweather, BlinkMacSystemFont, sans-serif;
+    font-family: 'Oswald', BlinkMacSystemFont, sans-serif;
 }
 
 main {
     display: grid;
-    grid-template-rows: 90px minmax(140px, auto) minmax(100px, auto);
+    grid-template-rows: 80px minmax(140px, auto) minmax(100px, auto);
     color: #ffffff;
     justify-content: center;
-    
+    gap: 0.5em;
 
     .app {
         margin: 0;
         line-height: 1.2;
+        padding: 1.25rem 0.4rem 0 0.4rem;
+        &.header {
+            font-size: 2rem;
+            border-bottom-width: medium;
+            border-bottom-style: solid;
+        }
         .text-button {
             display: flex;
             flex-direction: column;
