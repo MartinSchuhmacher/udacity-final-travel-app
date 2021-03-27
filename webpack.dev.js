@@ -42,12 +42,15 @@ module.exports = {
             protectWebpackAssets: false
         })//,
         //new WorkboxPlugin.GenerateSW()
-    ]/*,
+    ],
     //providing proxy for communcation during dev mode with backend server on 8081
     devServer: {
         open: true,
         proxy: {
-            '': ''
+            '/location': 'http://localhost:8081',
+            '/weather': 'http://localhost:8081',
+            '/picture': 'http://localhost:8081',
+            '/all': 'http://localhost:8081'
         }
-    }*/
+    }
 }

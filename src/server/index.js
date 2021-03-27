@@ -38,11 +38,6 @@ app.get('/', function(req, res) {
     res.sendFile('dist.index.html');
 });
 
-//send back recent project data
-app.get('/all', function(req,res) {
-    res.send(projectData);
-})
-
 //axios for promised based request
 //auto parse JSON by default, no need to do extra for data received from client
 app.post('/location', function(request, response) {
@@ -83,3 +78,8 @@ app.post('/picture', function(request, response) {
         console.log('Error while picture GET with axios: ', error);
     });
 });
+
+//send back recent project data
+app.get('/all', function(req,res) {
+    res.send(projectData);
+})
