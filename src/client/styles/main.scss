@@ -24,6 +24,10 @@ body {
     margin: 0;
     justify-content: center;
     font-family: 'Oswald', BlinkMacSystemFont, sans-serif;
+    @media (min-width: 64rem) {
+        grid-template-rows: minmax(18.75rem, auto) 4.5rem;
+        padding: 1.5rem;
+    }
 }
 
 main {
@@ -74,8 +78,15 @@ main {
             }
         }
     }
+    //desktop view
+    @media (min-width: 64rem) {
+        .app {
+            &.header {
+                font-size: 4.5rem;
+            }
+            .text-button {
+                gap: 2rem;
+            }
+        }
+    }
 }
-//tablet
-//@media (min-width: 768px) {}
-//desktop
-//@media (min-width: 1024px) {}

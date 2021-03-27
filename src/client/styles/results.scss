@@ -1,6 +1,11 @@
 .picture {
     width: 100%;
     border-radius: 0.3rem;
+    @media (min-width: 64rem) {
+        width: auto;
+        max-height: 600px;
+        object-fit: contain;
+    }
 }
 
 #results-area {  
@@ -27,6 +32,9 @@
         img {
             max-width: 2.5rem;
         }
+        @media (min-width: 25rem) and (max-width: 48rem) {
+            justify-content: center;
+        }
     }
     @media (min-width: 48rem) {
         h2 {
@@ -40,6 +48,30 @@
             padding-left: 8rem;
             img {
                 max-width: 4.5rem;
+            }
+        }
+    }
+    @media (min-width: 64rem) {
+        h2 {
+            font-size: 3.5rem;
+        }
+        h3 {
+            font-size: 2.6rem;
+        }
+        ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+        .weather-box {
+            font-size: 1.6rem;
+            padding: 0 0 1rem 1.3rem;
+            display: flex;
+            flex-direction: column;
+            white-space: nowrap;
+            img {
+                max-width: 5rem;
             }
         }
     }
