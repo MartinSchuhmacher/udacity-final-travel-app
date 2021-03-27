@@ -1,7 +1,11 @@
 html {
     box-sizing: border-box;
     font-size: 100%;
-    height: 100%;
+    min-height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background: rgb(136,203,171);
+    background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
 }
 
 * {
@@ -16,9 +20,7 @@ html {
 body {
     display: grid;
     grid-template-rows: minmax(18.75rem, auto) 3.125rem;
-    background: rgb(136,203,171);
-    background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
-    padding: 0;
+    padding: 0.5rem;
     margin: 0;
     justify-content: center;
     font-family: 'Oswald', BlinkMacSystemFont, sans-serif;
@@ -32,7 +34,7 @@ main {
     gap: 0.5rem;
     //height: minmax(30vh, auto);
     .app {
-        margin: 0;
+        margin: 0 0.2rem 0 0.2rem;
         padding: 0.2rem 0.4rem 0 0.4rem;
         &.header {
             padding-top: 1.25rem;
@@ -46,6 +48,15 @@ main {
             align-items: flex-start;
             gap: 0.3rem;
             padding: 0.8rem 0.2rem 1rem 0.2rem;
+        }
+        &.results {
+            padding: 1rem 1rem 0 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: fit-content;
+            //min-width
+            height: min-content;
         }
     }
 }
