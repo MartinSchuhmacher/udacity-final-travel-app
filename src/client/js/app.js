@@ -11,11 +11,10 @@ function handleSubmit(event) {
     };
     console.log('clicked!');
     //check input for correct format
-    const origin = document.getElementById('text').value.trim();
-    const destination = document.getElementById('text2').value.trim();
+    const destination = document.getElementById('text').value.trim();
     const departureDate = new Date(document.getElementById('date').value);
     const today = new Date();
-    const checkResult = Client.checkForValidation(origin, destination, departureDate, today);
+    const checkResult = Client.checkForValidation(destination, departureDate, today);
     //for debugging
     console.log('Result: '+checkResult);
 
@@ -23,7 +22,7 @@ function handleSubmit(event) {
     if(checkResult) {
         const dateDiff = Client.calculateDateDiff(departureDate, today);
         localStorage.setItem('dateDiff', dateDiff.toString());
-        const locationData = Client.getLocation('/location', origin, destination)
+        const locationData = Client.getLocation('/location', destination)
         .then(function(locationData) {
             Client.getWeather('/weather', locationData.lat, locationData.lng);
             return locationData;

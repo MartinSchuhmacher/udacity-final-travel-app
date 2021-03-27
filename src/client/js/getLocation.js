@@ -1,4 +1,4 @@
-async function getLocation(url='', origin, destination) {
+async function getLocation(url='', destination) {
     try {
         const response = await fetch(url, {
             mode: 'cors',
@@ -8,7 +8,6 @@ async function getLocation(url='', origin, destination) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                originInput: origin,
                 destinationInput: destination
             })
         });

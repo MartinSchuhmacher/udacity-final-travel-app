@@ -1,0 +1,50 @@
+//styling for form area
+label {
+    display: block;
+    font-size: 1.2rem;
+    line-height: 1.2;
+}
+
+input {
+    border-radius: 0.5rem;
+    height: 2rem;
+    width: 15rem;
+    border: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    padding: 0 0.5rem 0 0.5rem;
+    color: #4d4d4d;
+    &:focus {
+        outline: none;
+    }
+     // specific style for browser support
+    // Firefox, Chrome, Opera
+    &::placeholder {
+        color: #4d4d4d;
+        font-family: 'Oswald', sans-serif;
+    }
+    // Internet Explorer 10-11
+    &:-ms-input-placeholder {
+        color: #4d4d4d;
+        font-family: 'Oswald', sans-serif;
+    }
+    // Microsoft Edge
+    &::-ms-input-placeholder {
+        color: #4d4d4d;
+        font-family: 'Oswald', sans-serif;
+    }
+    &#date {
+        font-size: 0.8rem;
+        width: 7rem;
+        text-align: center;
+    }
+    &[type="submit"] {
+        width: 5.5rem;
+        height: 2rem;
+        text-align: center;
+        vertical-align: middle;
+        box-shadow: 0.2rem 0.25rem 0.3rem #000;
+        cursor: pointer;
+        margin-left: 0.4rem;
+    }
+}
