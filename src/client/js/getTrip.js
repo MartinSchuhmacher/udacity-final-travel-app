@@ -11,10 +11,10 @@ function getTrip(resultsArea, dateDiff, totalData) {
     for (const weathOne of totalData.weather) {
         const newElement = 
             `<li class="weather-box">
-                ${weathOne.valid_date} |
-                 <img src="https://github.com/MartinSchuhmacher/udacity-final-travel-app/blob/main/src/client/media/icons/${weathOne.weather.icon}.png?raw=true"> | 
-                max ${weathOne.max_temp}°C |
-                min ${weathOne.min_temp}°C
+                <div>${weathOne.valid_date}\u00A0</div>
+                <img src="https://github.com/MartinSchuhmacher/udacity-final-travel-app/blob/main/src/client/media/icons/${weathOne.weather.icon}.png?raw=true">  
+                <div>\u00A0 max ${weathOne.max_temp}°C\u00A0</div>
+                <div>\u00A0 min ${weathOne.min_temp}°C</div>
             </li>`;
         newList.insertAdjacentHTML('beforeend', newElement);
     }; 

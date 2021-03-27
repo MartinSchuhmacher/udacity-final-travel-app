@@ -28,4 +28,19 @@
             max-width: 2.5rem;
         }
     }
+    @media (min-width: 48rem) {
+        h2 {
+            font-size: 2.5rem;
+        }
+        h3 {
+            font-size: 1.6rem;
+        }
+        .weather-box {
+            font-size: 1.5rem;
+            padding-left: 8rem;
+            img {
+                max-width: 4.5rem;
+            }
+        }
+    }
 }

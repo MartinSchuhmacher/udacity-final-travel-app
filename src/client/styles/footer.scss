@@ -6,4 +6,7 @@ footer {
     font-size: 1.25rem;
     padding: 0.5rem 0.4rem 0 0.4rem;
     margin: 0.2rem;
+    @media (min-width: 48rem) {
+        font-size: 1.4rem;
+    }
 }

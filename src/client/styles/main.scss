@@ -59,4 +59,23 @@ main {
             height: min-content;
         }
     }
+    //tablet view
+    @media (min-width: 48rem) {
+        .app {
+            margin: 0;
+            padding: 0;
+            &.header {
+                font-size: 3rem;
+            }
+            .text-button {
+                display: flex;
+                flex-direction: row;
+                gap: 1.5rem;
+            }
+        }
+    }
 }
+//tablet
+//@media (min-width: 768px) {}
+//desktop
+//@media (min-width: 1024px) {}
