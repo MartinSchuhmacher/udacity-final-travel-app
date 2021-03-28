@@ -46,6 +46,8 @@ function resetData(event) {
     event.preventDefault();
     localStorage.clear();
     console.log('reset!');
+    document.getElementById('date').valueAsDate = new Date();
+    document.getElementById('text').value = '';
     while(resultsArea.firstChild) {
         resultsArea.removeChild(resultsArea.firstChild);
     };
