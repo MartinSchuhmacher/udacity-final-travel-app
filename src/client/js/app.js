@@ -1,4 +1,5 @@
 document.getElementById('form').addEventListener('submit', handleSubmit);
+//valueAsDate still gives problems with Safari Browser
 document.getElementById('date').valueAsDate = new Date();
 document.getElementById('delete').addEventListener('click', resetData);
 const resultsArea = document.getElementById('results-area');
@@ -37,7 +38,7 @@ function handleSubmit(event) {
         });
     }
     else {
-        alert('<Please enter valid locations and departure date!>');
+        alert('<Please enter valid destination and departure date!>');
     }
 }
 
@@ -45,6 +46,7 @@ function handleSubmit(event) {
 function resetData(event) {
     event.preventDefault();
     localStorage.clear();
+    //for debugging
     console.log('reset!');
     document.getElementById('date').valueAsDate = new Date();
     document.getElementById('text').value = '';

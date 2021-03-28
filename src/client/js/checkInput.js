@@ -1,4 +1,4 @@
-//check if origin and destination input match a valid location format and date is not in the past
+//check if destination input matches a valid location format and date is not in the past
 function checkForValidation(destination, departureDate, today) {
     const expression = /^[-a-zA-Z\s]{0,255}$/;
     const regex = new RegExp(expression);

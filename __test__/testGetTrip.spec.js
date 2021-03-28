@@ -1,4 +1,5 @@
 import {getTrip} from "../src/client/js/getTrip.js";
+
 let area = document.createElement('section');
 area.setAttribute("id", "results-area");
 const dateDiff = 1;
@@ -22,5 +23,5 @@ describe("Testing getdata functionality", () => {
         const weatherBox = document.getElementsByClassName('weather-box');
         expect(picture).toBeDefined;
         expect(weatherBox).toEqual(expect.anything());
-        });
     });
+});

@@ -43,6 +43,7 @@ The following customizations are implemented from the list of bonus items:
 
 ### Notes
 * the name of the app **Treather** is a combination of the basic setup to provide *weather* forecast for a certain *travel*
+* since the release of Express 4.16+ the features `.urlencoded()` and `.json()` were included directly into Express, so additional installation of `body-parser` is not needed anymore
 * using webpack-cli 4.x requires beta version `webpack-dev-server@4.0.0-beta.0` to make the webpack dev server work again
 * as this project uses Webpack 5 the required `optimize-css-assets-webpack-plugin` was not supported anymore, changed to `css-minimizer-webpack-plugin`
 * the page and input fields (especially the `date`) is not optimized for Safari Browser and needs future support for this case
