@@ -1,15 +1,32 @@
 footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     border-top-width: medium;
     border-top-style: solid;
     font-weight: 600;
     color: #fff;
-    font-size: 1.25rem;
-    padding: 0.5rem 0.4rem 0 0.4rem;
+    padding: 0.5rem 0.5rem 0 0rem;
     margin: 0.2rem;
-    @media (min-width: 48rem) {
-        font-size: 1.4rem;
+    p {
+        font-size: 1.1rem;
+        padding-left: 0.3rem;
+        @media (min-width: 48rem) {
+            font-size: 1.4rem;
+        }
+        @media (min-width: 64rem) {
+            font-size: 2rem;
+        }
     }
-    @media (min-width: 64rem) {
-        font-size: 2rem;
+    .linkedin-link {
+        max-height: 1.875rem;
+        border-radius: 0.3rem;
+        @media (min-width: 48rem) {
+            max-height: 2.188rem;
+        }
+        @media (min-width: 64rem) {
+            max-height: 3.125rem;
+        }
     }
 }
