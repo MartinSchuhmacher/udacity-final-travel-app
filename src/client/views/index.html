@@ -35,6 +35,15 @@
                 <img title="LinkedIn" alt="LI" src="https://github.com/MartinSchuhmacher/udacity-final-travel-app/blob/main/src/client/media/linkedin.jpg?raw=true" class="linkedin-link">
             </a>
         </footer>
-        <!--add service workers later-->
+        <!--adding Service Workers for supported browsers-->
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+        </script>
     </body>
 </html>

@@ -40,8 +40,8 @@ module.exports = {
             verbose: true,
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
-        })//,
-        //new WorkboxPlugin.GenerateSW()
+        }),
+        new WorkboxPlugin.GenerateSW()
     ],
     //providing proxy for communcation during dev mode with backend server on 8081
     devServer: {
