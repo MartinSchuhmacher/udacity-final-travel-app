@@ -1,16 +1,14 @@
-//const dotenv = require('dotenv');
+const dotenv = require('dotenv');
 const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
 
 //using environment variable
-/*
 dotenv.config();
 const geonamesApi = {geonames_username: process.env.GEONAMES_USERNAME};
 const weatherbitApi = {weatherbit_key: process.env.WEATHERBIT_KEY};
 const pixabayApi = {pixabay_key: process.env.PIXABAY_KEY};
-*/
 
 //setup empty JS object to act as endpoint
 let tripData = {};
@@ -35,7 +33,7 @@ app.listen(8081, function() {
 //auto parse JSON by default, no need to do extra for data received from client
 app.post('/location', function(request, response) {
     console.log(request.body);
-    axios.get('http://api.geonames.org/searchJSON?q='+request.body.destinationInput+'&maxRows=10&lang=en&username=martilunya')
+    axios.get('http://api.geonames.org/searchJSON?q='+request.body.destinationInput+'&maxRows=10&lang=en&username='+geonamesApi.geonames_username)
     .then(res => {
         console.log(res.data.geonames[0]);
         tripData = {destination: res.data.geonames[0].toponymName}
@@ -48,7 +46,7 @@ app.post('/location', function(request, response) {
 
 app.post('/weather', function(request, response) {
     console.log(request.body);
-    axios.get('http://api.weatherbit.io/v2.0/forecast/daily?key=dd209d0def734551b36581634fd8af58&lat='+request.body.latitudeInput+'&lon='+request.body.longitudeInput)
+    axios.get('http://api.weatherbit.io/v2.0/forecast/daily?key='+weatherbitApi.weatherbit_key+'&lat='+request.body.latitudeInput+'&lon='+request.body.longitudeInput)
     .then(res => {
         console.log(res.data);
         tripData.weather = res.data.data;
@@ -61,7 +59,7 @@ app.post('/weather', function(request, response) {
 
 app.post('/picture', function(request, response) {
     console.log(request.body);
-    axios.get('https://pixabay.com/api/?key=20793540-4a2a3c92a127a46d775b25c1c&q='+request.body.cityNameInput)
+    axios.get('https://pixabay.com/api/?key='+pixabayApi.pixabay_key+'&q='+request.body.cityNameInput)
     .then(res => {
         console.log(res.data.hits[0]);
         tripData.picture = res.data.hits[0].webformatURL;
