@@ -30,6 +30,7 @@ The following customizations are implemented from the list of bonus items:
 * Use Local Storage to save the data so that when they close, then revisit the page, their information is still there
 * Instead of just pulling a single day forecast, pull the forecast for multiple days
 * Incorporate icons into forecast
+* Choose random picture as result from all provided pictures in the array
 
 ## Steps to start
 * download repository
