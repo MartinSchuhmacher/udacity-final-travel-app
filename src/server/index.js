@@ -63,8 +63,8 @@ app.post('/picture', function(request, response) {
     console.log(request.body);
     axios.get('https://pixabay.com/api/?key=20793540-4a2a3c92a127a46d775b25c1c&q='+request.body.cityNameInput)
     .then(res => {
-        console.log(res.data.hits[0]);
-        tripData.picture = res.data.hits[0].webformatURL;
+        console.log(res.data.hits[ Math.floor(Math.random() * (res.data.hits).length) ]);
+        tripData.picture = res.data.hits[ Math.floor(Math.random() * (res.data.hits).length) ].webformatURL;
         response.send(tripData);
     })
     .catch(error => {
