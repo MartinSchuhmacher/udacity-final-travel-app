@@ -36,7 +36,6 @@ main {
     color: #fff;
     justify-content: center;
     gap: 0.5rem;
-    //height: minmax(30vh, auto);
     .app {
         margin: 0 0.2rem 0 0.2rem;
         padding: 0.2rem 0.4rem 0 0.4rem;
@@ -59,7 +58,6 @@ main {
             flex-direction: column;
             justify-content: center;
             width: fit-content;
-            //min-width
             height: min-content;
         }
     }

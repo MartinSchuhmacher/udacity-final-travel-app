@@ -1,7 +1,7 @@
 //styling for form area
 label {
     display: block;
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     line-height: 1.2;
     @media (min-width: 48rem) {
         font-size: 1.6rem;
@@ -10,6 +10,20 @@ label {
     @media (min-width: 64rem) {
         font-size: 2rem;
         line-height: 1.8;
+    }
+}
+
+p {
+    margin: 0;
+    font-size: 1.15rem;
+    line-height: 2;
+    @media (min-width: 48rem) {
+        font-size: 2rem;
+        line-height: 2;
+    }
+    @media (min-width: 64rem) {
+        font-size: 3rem;
+        line-height: 2;
     }
 }
 

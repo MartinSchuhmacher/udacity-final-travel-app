@@ -4,16 +4,17 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
-        <title>Travel (with Martin) App</title>
+        <title>Treather App</title>
     </head>
     <body>
         <main>
             <section class="app header">
-                Travel (with Martin) App
+                Treather App
             </section>
             <section class="app">
                 <!--form to submit data-->
                 <form id="form">
+                    <p>Know the weather for your travel with Treather</p>
                     <label for="text">Please enter destination and date of departure</label>
                     <div class="text-button">
                         <input type="text" id="text" placeholder="destination..." required>
@@ -23,14 +24,26 @@
                 </form>
                 <input type="button" id="delete" value="Reset form and results">
             </section>
+            <!--shows result of the process-->
             <section class="app results", id="results-area">
-                <!--shows result of the process-->
             </section>
         </main>
         <!--footer area-->
         <footer>
-            @ Footer stuff, not food stuff.
+            <p>Optimized for Google Chrome browser</p>
+            <a href="https://www.linkedin.com/in/martinschuhmacher/">
+                <img title="LinkedIn" alt="LI" src="https://github.com/MartinSchuhmacher/udacity-final-travel-app/blob/main/src/client/media/linkedin.jpg?raw=true" class="linkedin-link">
+            </a>
         </footer>
-        <!--add service workers later-->
+        <!--adding Service Workers for supported browsers-->
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+        </script>
     </body>
 </html>

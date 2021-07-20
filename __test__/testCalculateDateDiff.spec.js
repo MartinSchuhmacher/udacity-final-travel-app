@@ -1,6 +1,6 @@
 import {calculateDateDiff} from "../src/client/js/calculateDateDiff.js";
 
-describe("Testing the date diff", () => {
+describe("Testing the date diff functionality", () => {
     test("Test the function to calculate date difference", () => {
         const today = new Date();
         let tomorrow = new Date(today);
